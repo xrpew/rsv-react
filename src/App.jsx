@@ -8,7 +8,7 @@ const MyModalComponent = () => {
       <div id="rellenar"></div>
       <button
         type="button"
-        className="btn btn-primary m-4"
+        className="btn btn-primary m-4 position-relative start-50 translate-middle"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         data-bs-whatever="@mdo"
