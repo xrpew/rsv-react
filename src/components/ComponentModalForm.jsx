@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import {
     doc,
@@ -8,6 +8,8 @@ import {
     deleteDoc,
   } from "firebase/firestore";
 const ComponentModalForm = () => {
+  const [ updating, setUpdating] = useState(false)
+
   const handleForm = async () => {
     let name = document.getElementById("nombre-name").value;
     let mesa = document.getElementById("mesa-name").value;
@@ -19,8 +21,14 @@ const ComponentModalForm = () => {
         await setDoc(doc(db, 'usuarios', name), { name, mesa, hora, quanty });
         // consultarData();
         console.log("guardado");
+        setUpdating(!updating)
     }
   };
+
+  useEffect(() => {
+    console.log('allAgain')
+  }, [updating])
+  
 
   return (
     <div className="modal-dialog">
@@ -78,14 +86,14 @@ const ComponentModalForm = () => {
             className="btn btn-secondary"
             data-bs-dismiss="modal"
           >
-            Close
+            Cancelar
           </button>
           <button
             onClick={handleForm}
             type="button"
             className="btn btn-primary"
           >
-            Send message
+            Agregar
           </button>
         </div>
       </div>
