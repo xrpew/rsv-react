@@ -13,7 +13,7 @@ const MyModalComponent = () => {
         data-bs-target="#exampleModal"
         data-bs-whatever="@mdo"
       >
-        Open modal for @mdo
+        Agregar nueva reserva
       </button>
 
       <div
