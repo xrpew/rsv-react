@@ -8,7 +8,6 @@ import {
     deleteDoc,
   } from "firebase/firestore";
 const ComponentModalForm = () => {
-  const [ updating, setUpdating] = useState(false)
 
   const handleForm = async () => {
     let name = document.getElementById("nombre-name").value;
@@ -19,16 +18,10 @@ const ComponentModalForm = () => {
         return;
     } else {
         await setDoc(doc(db, 'usuarios', name), { name, mesa, hora, quanty });
-        // consultarData();
         console.log("guardado");
-        setUpdating(!updating)
+        location.reload()
     }
   };
-
-  useEffect(() => {
-    console.log('allAgain')
-  }, [updating])
-  
 
   return (
     <div className="modal-dialog">
